@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name "*.git" | rev | cut -d "/" -f 1 | rev |cut -d '.' 2- | rev | LC_ALL-C sort -f
+find . -type f -name ".gif" | sed -E 's|^./([^/]+)\.gif$|\1|' | LC_COLLATE=C sort -f -t $'\0' | tr '\n' '\0' | xargs -0 -L 1 echo
